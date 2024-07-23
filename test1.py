@@ -30,11 +30,7 @@ while prompt != "":
     )
     completion = client.chat.completions.create(
         model=deployment,
-        messages= [
-        {
-        "role": "user",
-        "content": prompt
-        }],
+        messages = messages,
         max_tokens=800,
         temperature=0.7,
         top_p=0.95,
