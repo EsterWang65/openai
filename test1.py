@@ -19,20 +19,21 @@ client = AzureOpenAI(
 )
 
 prompt = input("請輸入您的問題：")
-
-completion = client.chat.completions.create(
-    model=deployment,
-    messages= [
-    {
-      "role": "user",
-      "content": prompt
-    }],
-    max_tokens=800,
-    temperature=0.7,
-    top_p=0.95,
-    frequency_penalty=0,
-    presence_penalty=0,
-    stop=None,
-    stream=False
-)
-print(completion.choices[0].message.content)
+while prompt != "":
+    completion = client.chat.completions.create(
+        model=deployment,
+        messages= [
+        {
+        "role": "user",
+        "content": prompt
+        }],
+        max_tokens=800,
+        temperature=0.7,
+        top_p=0.95,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=None,
+        stream=False
+    )
+    print(completion.choices[0].message.content)
+    prompt = input("請輸入您的問題：")
