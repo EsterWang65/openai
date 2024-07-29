@@ -8,9 +8,6 @@ endpoint = os.getenv("ENDPOINT_URL", "https://gjun-oai-user04.openai.azure.com/"
 deployment = os.getenv("DEPLOYMENT_NAME", "GPT")
 key = "2566bf641510460fafe5c4145bc80955"
 
-token_provider = get_bearer_token_provider(
-    DefaultAzureCredential(),
-    "https://cognitiveservices.azure.com/.default")
       
 client = AzureOpenAI(
     azure_endpoint=endpoint,
