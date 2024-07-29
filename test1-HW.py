@@ -13,13 +13,15 @@ client = AzureOpenAI(
     api_key=key,
     api_version="2024-05-01-preview",
 )
-       
+
+prompt = input("請輸入您的問題：")
+
 completion = client.chat.completions.create(
     model=deployment,
     messages= [
     {
       "role": "user",
-      "content": "What are the differences between Azure Machine Learning and Azure AI services?"
+      "content": prompt
     }],
     max_tokens=800,
     temperature=0.7,
@@ -29,4 +31,4 @@ completion = client.chat.completions.create(
     stop=None,
     stream=False
 )
-print(completion.to_json())
+print(completion.choices[0].message.content)
