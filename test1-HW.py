@@ -4,9 +4,9 @@ import json
 from openai import AzureOpenAI
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-endpoint = "https://gjun-oai-user01.openai.azure.com/"
+endpoint = "https://gjun-open-ai.openai.azure.com/"
 deployment = "GPT"
-key = "6652e17debe84a8d8fc8f529c6edefdb"
+key = "8b6041cc25f54c05b5e7629715225837"
       
 client = AzureOpenAI(
     azure_endpoint=endpoint,
