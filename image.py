@@ -14,33 +14,12 @@ client = AzureOpenAI(
     api_version="2024-02-01",
 )
 
-prompt = input("請輸入您的問題：")
-messages = []
-while prompt != "":
-    messages.append(
-        {
-        "role": "user",
-        "content": prompt
-        }
-    )
-    completion = client.chat.completions.create(
-        model=deployment,
-        messages=messages,
-        max_tokens=800,
-        temperature=0.7,
-        top_p=0.95,
-        frequency_penalty=0,
-        presence_penalty=0,
-        stop=None,
-        stream=False
-    )
-    messages.append(
-        {
-            "role": "assistant",
-            "content": completion.choices[0].message.content
-        }
-    )
-        
-    print(completion.choices[0].message.content)
-    print(messages)
-    prompt = input("請輸入您的問題：")
+result = client.images.generate(
+    model=deployment, 
+    prompt="兩隻狗在玩泥巴",
+    n=1
+)
+
+image_url = json.loads(result.model_dump_json())['data'][0]['url']
+
+print(image_url)
