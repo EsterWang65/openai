@@ -11,9 +11,10 @@ def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
 def generate_embeddings(text, model="text-embedding-ada-002"): # model = "deployment_name"
-    return client.embeddings.create(input = [text], model=model).data[0].embedding
+    return np.array(client.embeddings.create(input = [text], model=model).data[0].embedding)
 
-vector1 = generate_embeddings("hello")
-vector2 = generate_embeddings("hi")
-cs = cosine_similarity(vector1, vector2)
+vector1 = generate_embeddings("coffee")
+vector2 = generate_embeddings("milk")
+vector3 = generate_embeddings("latte")
+cs = cosine_similarity(vector1 + vector2, vector3)
 print(cs)
