@@ -9,7 +9,7 @@ ENDPOINT = "https://gjun-ai-04.cognitiveservices.azure.com/"
 #training_key = "566f4bfb24124624b1ec58a4d6dda09d"
 prediction_key = "566f4bfb24124624b1ec58a4d6dda09d"
 #prediction_resource_id = os.environ["VISION_PREDICTION_RESOURCE_ID"]
-file_path = "C:\Users\GM-206-E3\Downloads\test\1.jpg"
+file_path = r"C:\Users\GM-206-E3\Downloads\test\1.jpg"
 
 # Now there is a trained endpoint that can be used to make a prediction
 prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
