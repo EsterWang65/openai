@@ -82,7 +82,7 @@ def main():
 
     
     # 创建 Word 文件
-    create_word_document(image_data, 'image_data_2.docx')
+    create_word_document(image_data[1:-1], 'image_data_2.docx')
 
 if __name__ == '__main__':
     main()
